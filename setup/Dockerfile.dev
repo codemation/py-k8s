@@ -13,7 +13,7 @@ WORKDIR $SETUP_DIR
 ARG build_time_var="2"
 ARG branch="master"
 ENV SETUP_VER=$build_time_var
-ENV GIT="wget https://github.com/codemation/py-k8s/blob/$branch/setup/setup_v0.$SETUP_VER.sh"
+ENV GIT="wget https://raw.githubusercontent.com/codemation/py-k8s/$branch/setup/setup_v0.$SETUP_VER.sh"
 RUN $GIT
 
 WORKDIR /
