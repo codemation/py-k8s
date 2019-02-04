@@ -11,8 +11,9 @@ RUN mkdir $SETUP_DIR
 WORKDIR $SETUP_DIR
 
 ARG build_time_var="2"
+ARG branch="master"
 ENV SETUP_VER=$build_time_var
-RUN wget https://github.com/codemation/py-k8s/raw/master/setup/setup_v0.$SETUP_VER.sh
+RUN wget https://github.com/codemation/py-k8s/raw/$branch/setup/setup_v0.$SETUP_VER.sh
 
 WORKDIR /
 RUN mkdir /ignition
