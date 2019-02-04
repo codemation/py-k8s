@@ -1,0 +1,18 @@
+FROM debian:jessie
+
+RUN apt-get update \
+        && apt-get install --no-install-recommends --no-install-suggests -y \
+                python-pip \
+                git \
+        && pip install web.py
+
+RUN mkdir /ignition
+ENV DIRPATH /ignition
+RUN git clone https://github.com/codemation/py-k8s.git $DIRPATH
+
+ENV IG_BASE_PORT="9000"
+EXPOSE $IG_BASE_PORT
+
+WORKDIR /ignition
+
+CMD sh setup.sh
