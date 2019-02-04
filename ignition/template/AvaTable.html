@@ -1,0 +1,16 @@
+$def with (table, IterNavIns, session)
+
+<table width="80%" height="100%">
+	<tr width="100%" height="100%">
+		<td width="100%">
+			$:table
+		</td>
+		<td>
+			<ul>
+				<form  class="form" method="post" action="/AltaLog3/$session">
+					$:IterNavIns.render()
+				</form>
+			</ul>
+		</td>
+	</tr>
+</table>

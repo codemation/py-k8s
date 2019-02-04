@@ -1,0 +1,59 @@
+$def with (mode, form, session)
+
+$if mode == 0:
+	<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by Case #.." title="Type in a Case Number">
+	<form class="form" method="post">
+	$if form:
+		$:form
+	</form>
+
+	<script>
+	function myFunction() {
+	  var input, filter, table, tr, td, i;
+	  input = document.getElementById("myInput");
+	  filter = input.value.toUpperCase();
+	  table = document.getElementById("myTable");
+	  tr = table.getElementsByTagName("tr");
+	  for (i = 0; i < tr.length; i++) {
+		td = tr[i].getElementsByTagName("td")[2];
+		if (td) {
+		  if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+			tr[i].style.display = "";
+		  } else {
+			tr[i].style.display = "none";
+		  }
+		}       
+	  }
+	}
+	</script>
+
+$elif mode ==1:
+	<form class="form" method="post" action="/PickPath/$session">
+	$if form:
+		$:form.render()
+	</form>
+
+$elif mode ==2:
+	$if form:
+	<form class="form" method="post" action="/PickSysDump/$session">
+		$:form.render()
+		<input class="button" type="submit" value="Pick Path" id="submit"/>
+	</form>
+
+$elif mode ==3:
+	<form class="form" method="post" action="CustomPath/$session">
+	$if form:
+		$:form.render()
+		<input class="button" type="submit" value="Search Custom Path"/>
+	</form>
+	
+	
+$elif mode ==4:	
+	<form action="http://10.216.35.20/LoadExisting/$session">
+		<input type="submit" value="Load Existing Data" id="submit"/>
+	</form>
+
+$elif mode ==5:
+	<form method="post" action="http://$form/NewSessionCleanOld/$session">
+		<input type="submit" value="Continue to Load Existing Data" id="submit" />
+	</form>

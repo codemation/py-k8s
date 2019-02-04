@@ -1,0 +1,15 @@
+$def with (mode,ConfigTableList,nav,session)
+<table class="table" width="80%" height="100%">
+	<tr width="100%" height="100%">
+		<td width="100%">
+			$if mode==0:
+			  $for table in ConfigTableList:
+			    $:table
+		</td>
+		<td width="20%">
+			<ul>
+				$:nav
+			</ul>
+		</td>
+	</tr>
+</table>

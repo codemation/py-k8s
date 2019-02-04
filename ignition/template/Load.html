@@ -1,0 +1,19 @@
+$def with (choice, session)
+
+
+$if choice == int(0):
+	<form method="post" action="NewSession">
+		<input type="submit" value="New Session" />
+	</form>
+	<form action="LoadSession">
+		<input type="submit" value="Load Session" />
+	</form>
+
+$if choice == int(1):
+	<form action="LoadNew/$session">
+		<input type="submit" value="Load New Data" />
+	</form>
+	<form action="LoadExisting/$session">
+		<input type="submit" value="Load Existing Data" />
+	</form>
+	

@@ -1,0 +1,7 @@
+$def with (mode, session, form)
+
+$if mode == 0:
+	<form class="form" method="post" action="NewSession">
+	$:form.render()
+	$session
+	</form>

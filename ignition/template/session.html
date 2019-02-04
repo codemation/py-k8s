@@ -1,0 +1,9 @@
+$def with (mode,session, ip)
+
+	$if mode==0:
+		<form action="http://$ip:605$session/LoadNew/$session">
+			<input type="submit" value="Load New Data" id="submit"/>
+		</form>
+		<form action="http://$ip:605$session/LoadExisting/$session">
+			<input type="submit" value="Load Existing Data" id="submit"/>
+		</form>

@@ -1,0 +1,28 @@
+$def with (mode, text, form, session)
+	$if mode == 0:
+		<form action="/AltaLog/$session">
+			<input type="submit" value="Start AltaLog" id="submit"/>
+		</form>
+
+	$if mode == 1:
+		$if text:
+			$for item in text:
+				$(text[item])
+			<form class="form" method="post" action="/AltaLog/$session">
+				$:form.render()
+			</form>
+			
+	$if mode == 2:
+		$if text:
+			$for item in text:
+				$item
+			<form class="form" method="post" action="/AltaLog2/$session">
+				$:form.render()
+			</form>
+			
+	$if mode ==3:
+		$if form:
+			$:form
+			<form action="/AltaLog3/$session">
+				<input type="submit" value="Next Iteration" />
+			</form>

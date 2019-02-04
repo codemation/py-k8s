@@ -1,0 +1,13 @@
+$def with (mode,session)
+
+	$if mode==1:
+		<form action="http://10.216.35.27:$session/LoadConfig/0">
+			<input type="submit" value="Load Existing Configuration" id="submit"/>
+		</form>
+		<form action="http://10.216.35.27:$session/NewConfig/0">
+			<input type="submit" value="Start New Configuration" id="submit"/>
+		</form>
+	$if mode == int(0):
+	<form method="post" action="/NewSession">
+		<input type="submit" value="Ignition - Get Started" id="submit"/>
+	</form>

@@ -1,0 +1,12 @@
+$def with (session, toRender, divId, target, method, ajax)
+
+	$if ajax == 0:
+		<div id=$divId action=$target, method=$method>
+			$for item in toRender:
+				$:item
+		</div>
+	$if ajax == 1:
+		<form class="form" action="$target" method=$method>
+			$for item in toRender:
+				$:item
+		</form>

@@ -1,0 +1,20 @@
+$def with (choice)
+
+$if choice == int(1):
+	<form action="LoadNew">
+		<input type="submit" value="Load New Data" id="submit" />
+	</form>
+	<form action="LoadExisting">
+		<input type="submit" value="Load Existing Data" id="submit"/>
+	</form>
+	
+$if choice == int(0):
+	<form method="post" action="/NewSession">
+		<input type="submit" value="AltaLog - Get Started" id="submit"/>
+	</form>
+	
+	
+$else:
+	<form action="Radio">
+		<input type="submit" value="Radio" />
+	</form>

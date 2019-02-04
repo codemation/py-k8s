@@ -1,0 +1,8 @@
+$def with (form)
+
+
+<form class="form" method="post">
+$if form:
+	$:form.render()
+<input class="button" type="submit" value="send"/>
+</form>
