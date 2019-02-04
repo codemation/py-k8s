@@ -9,11 +9,19 @@ RUN apt-get update \
 ENV SETUP_DIR="ig_setup"
 RUN mkdir $SETUP_DIR
 WORKDIR $SETUP_DIR
-RUN wget https://github.com/codemation/py-k8s/raw/master/setup/setup_v0.2.sh
+
+ARG build_time_var="2"
+ENV SETUP_VER=$build_time_var
+RUN wget https://github.com/codemation/py-k8s/raw/master/setup/setup_v0.$SETUP_VER.sh
 
 WORKDIR /
 RUN mkdir /ignition
 WORKDIR /ignition
 EXPOSE $IG_BASE_PORT
+RUN echo "sh /ig_setup/setup_v0.$SETUP_VER.sh" >> /ig_setup/setup.sh
+RUN sh /ig_setup/setup_v0.$SETUP_VER.sh
 
-CMD sh /$SETUP_DIR/setup.sh
+ENV PORT_LISTEN=9000
+
+WORKDIR /ignition/ignition/
+CMD python igchild2.py $PORT_LISTEN
