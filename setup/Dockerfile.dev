@@ -9,7 +9,7 @@ RUN apt-get update \
 ENV SETUP_DIR="ig_setup"
 RUN mkdir $SETUP_DIR
 WORKDIR $SETUP_DIR
-RUN wget https://github.com/codemation/py-k8s/raw/master/setup/setup.sh
+RUN wget https://github.com/codemation/py-k8s/raw/master/setup/setup_v0.0.sh
 
 WORKDIR /
 RUN mkdir /ignition
