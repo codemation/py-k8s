@@ -3,7 +3,7 @@ python inc_var.py
 
 from=$var
 to=$(cat nvar)
-mv setup/setup_v0.$from.sh setup/setup_v0.$to.sh
+mv /stuff/py-k8s/setup/setup_v0.$from.sh /stuff/py-k8s/setup/setup_v0.$to.sh
 var=$(cat nvar)
 git add setup; 
 git add ignition;
