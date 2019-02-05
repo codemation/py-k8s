@@ -5,4 +5,4 @@ services:
 before_install:
   - sh scripts/update_travis.sh
 script:
-  - docker run joshjamison/ig_test -- --coverage
+  - docker run joshjamison/ignition -- --coverage
