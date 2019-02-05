@@ -21,7 +21,7 @@ rm -f nvar; rm -f var;
 echo $var >> var
 rm -f cur_branch
 git status | grep "On branch" | awk {'print $3'} >> scripts/cur_branch
-git_branch=$(cat cur_branch)
+git_branch=$(cat scripts/cur_branch)
 git push orgin $git_branch 
 echo "current branch is $git_branch"
 docker image build -f /stuff/py-k8s/setup/Dockerfile.dev --build-arg build_time_var=$var --build-arg build_time_branch=$git_branch -t joshjamison/ignition /stuff/py-k8s/setup/
