@@ -4,6 +4,5 @@ services:
 
 before_install:
   - sh scripts/update_travis.sh
-  - docker run --name test -d -p 9000:9000 joshjamison/ignition
 script:
-  - curl http://127.0.0.1:9000/LoadConfig/0?
+  - sh scripts/travis_run.sh
