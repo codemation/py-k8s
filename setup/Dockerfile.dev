@@ -14,7 +14,7 @@ ARG build_time_var
 ENV cur_branch=$build_time_branch
 ENV SETUP_VER=$build_time_var
 RUN wget https://raw.githubusercontent.com/codemation/py-k8s/$cur_branch/setup/setup_v0.$SETUP_VER.sh
-
+ENV IG_BASE_PORT="9000"
 WORKDIR /
 RUN mkdir /ignition
 WORKDIR /ignition
