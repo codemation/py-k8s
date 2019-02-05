@@ -14,8 +14,7 @@ ARG build_time_var="2"
 ARG branch="master"
 ENV cur_branch=$branch
 ENV SETUP_VER=$build_time_var
-ENV GIT="wget https://raw.githubusercontent.com/codemation/py-k8s/$cur_branch/setup/setup_v0.$SETUP_VER.sh"
-RUN $GIT
+RUN wget https://raw.githubusercontent.com/codemation/py-k8s/$cur_branch/setup/setup_v0.$SETUP_VER.sh
 
 WORKDIR /
 RUN mkdir /ignition
