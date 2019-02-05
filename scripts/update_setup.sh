@@ -5,9 +5,9 @@ from=$var
 to=$(cat nvar)
 mv /stuff/py-k8s/setup/setup_v0.$from.sh /stuff/py-k8s/setup/setup_v0.$to.sh
 var=$(cat nvar)
-git add setup; 
-git add ignition;
-git add scripts;
+git add /stuff/py-k8s/setup; 
+git add /stuff/py-k8s/ignition;
+git add /stuff/py-k8s/scripts;
 if [ $# -eq 1 ]
   then
     echo "adding commit - $1"
