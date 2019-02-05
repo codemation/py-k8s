@@ -8,6 +8,7 @@ var=$(cat nvar)
 git add /stuff/py-k8s/setup; 
 git add /stuff/py-k8s/ignition;
 git add /stuff/py-k8s/scripts;
+git add /stuff/py-k8s/.travis.yml;
 if [ $# -eq 1 ]
   then
     echo "adding commit - $1"
