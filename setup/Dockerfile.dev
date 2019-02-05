@@ -11,7 +11,7 @@ RUN mkdir $SETUP_DIR
 WORKDIR $SETUP_DIR
 ARG build_time_branch
 ARG build_time_var
-ENV cur_branch=$branch
+ENV cur_branch=$build_time_branch
 ENV SETUP_VER=$build_time_var
 RUN wget https://raw.githubusercontent.com/codemation/py-k8s/$cur_branch/setup/setup_v0.$SETUP_VER.sh
 
