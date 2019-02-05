@@ -1,0 +1,15 @@
+FROM debian:jessie
+RUN apt-get update \
+        && apt-get install --no-install-recommends --no-install-suggests -y \
+                python-pip \
+		wget \
+        && pip install web.py
+WORKDIR /
+RUN wget http://10.216.35.27:8080/static/py-k8s.tar.gz
+RUN mkdir /ignition
+RUN tar -xvzf py-k8s.tar.gz -C /ignition
+WORKDIR /ignition
+EXPOSE $IG_BASE_PORT
+ENV PORT_LISTEN=9000
+CMD python igchild2.py $PORT_LISTEN
+

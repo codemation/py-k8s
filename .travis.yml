@@ -1,0 +1,8 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t joshjamison/ig_test -f setup/Dockerfile.dev setup/
+script:
+  - docker run joshjamison/ig_test -- --coverage
