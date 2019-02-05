@@ -3,6 +3,6 @@ services:
   - docker
 
 before_install:
-  - sh /scripts/update_travis.sh
+  - sh scripts/update_travis.sh
 script:
   - docker run joshjamison/ig_test -- --coverage
